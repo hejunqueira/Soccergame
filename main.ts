@@ -267,11 +267,11 @@ game.onUpdate(function () {
     kickBall(player1)
     kickBall(player2)
     checkGoal()
-    if (score1 >= 2) {
+    if (score1 >= 3) {
         game.splash("Player 1 Wins!")
         game.reset()
     }
-    if (score2 >= 2) {
+    if (score2 >= 3) {
         game.splash("Player 2 Wins!")
         game.reset()
     }
