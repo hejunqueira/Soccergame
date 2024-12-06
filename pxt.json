@@ -2,7 +2,9 @@
     "name": "basketballl",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "multiplayer": "*",
+        "controller": "*"
     },
     "files": [
         "main.blocks",
