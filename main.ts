@@ -45,6 +45,7 @@ function createPlayers () {
         . . . . c b 5 5 5 5 b c . . . . 
         . . . . . f f f f f f . . . . . 
         `, SpriteKind.Player)
+    player1.setPosition(62, 55)
     mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), player1)
     mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.One))
     player2 = sprites.create(img`
@@ -65,6 +66,7 @@ function createPlayers () {
         . . . . . f f f f f f . . . . . 
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
+    player2.setPosition(92, 55)
     mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), player2)
     mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.Two))
 }
