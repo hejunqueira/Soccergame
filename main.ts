@@ -4,6 +4,8 @@ namespace SpriteKind {
     export const Defense = SpriteKind.create()
 }
 function kickBall (player2: Sprite) {
+    // BOOLEAN OPERATOR
+    // 
     if (player2.overlapsWith(ball)) {
         directionX = ball.x - player2.x
         directionY = ball.y - player2.y
@@ -11,21 +13,32 @@ function kickBall (player2: Sprite) {
         ball.vy = directionY * 2
     }
 }
+// iteration
+// CONDITION
+// BOOLEAN OPERATOR
+// 
 sprites.onOverlap(SpriteKind.Ball, SpriteKind.Defense, function (sprite, otherSprite) {
     game.gameOver(false)
 })
+// iteration
+// if statment - loops
+// conditional statmenet
 function checkGoal () {
+    // CONDITION
+    // 
     if (ball.overlapsWith(goal1)) {
         game.setGameOverEffect(true, effects.confetti)
         score2 += 1
         ball.setPosition(80, 60)
     }
+    // CONDITION
     if (ball.overlapsWith(goal2)) {
         game.setGameOverEffect(true, effects.confetti)
         score1 += 1
         ball.setPosition(80, 60)
     }
 }
+// function with parameters
 function createPlayers () {
     player1 = sprites.create(img`
         . . . . . . . c c c . . . . . . 
@@ -46,7 +59,10 @@ function createPlayers () {
         . . . . . f f f f f f . . . . . 
         `, SpriteKind.Player)
     player1.setPosition(62, 55)
+    // EXTENSION
     mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), player1)
+    // EXTENSION
+    // 
     mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.One))
     player2 = sprites.create(img`
         . . . . . . f f f f . . . . . . 
@@ -67,7 +83,11 @@ function createPlayers () {
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
     player2.setPosition(92, 55)
+    // EXTENSION
+    // 
     mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), player2)
+    // EXTENSION
+    // 
     mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.Two))
 }
 function array__defense_to_make_it_harder () {
@@ -260,15 +280,19 @@ let goal1: Sprite = null
 let directionY = 0
 let directionX = 0
 let ball: Sprite = null
-let defenses2: number[] = []
 let defense3 = null
+// ARRAY
+// 
+let defenses2: number[] = []
 createPlayers()
 createBallAndGoals()
 array__defense_to_make_it_harder()
+// conditional statment
 game.onUpdate(function () {
     kickBall(player1)
     kickBall(player2)
     checkGoal()
+    // CONDITION
     if (score1 >= 3) {
         game.splash("Player 1 Wins!")
         game.reset()
