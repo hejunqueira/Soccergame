@@ -16,7 +16,6 @@ function kickBall (player2: Sprite) {
 // iteration
 // CONDITION
 // BOOLEAN OPERATOR
-// 
 sprites.onOverlap(SpriteKind.Ball, SpriteKind.Defense, function (sprite, otherSprite) {
     game.gameOver(false)
 })
