@@ -5,7 +5,6 @@ namespace SpriteKind {
 }
 function kickBall (player2: Sprite) {
     // BOOLEAN OPERATOR
-    // 
     if (player2.overlapsWith(ball)) {
         directionX = ball.x - player2.x
         directionY = ball.y - player2.y
@@ -24,7 +23,6 @@ sprites.onOverlap(SpriteKind.Ball, SpriteKind.Defense, function (sprite, otherSp
 // conditional statmenet
 function checkGoal () {
     // CONDITION
-    // 
     if (ball.overlapsWith(goal1)) {
         game.setGameOverEffect(true, effects.confetti)
         score2 += 1
@@ -61,7 +59,6 @@ function createPlayers () {
     // EXTENSION
     mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), player1)
     // EXTENSION
-    // 
     mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.One))
     player2 = sprites.create(img`
         . . . . . . f f f f . . . . . . 
@@ -83,10 +80,8 @@ function createPlayers () {
         `, SpriteKind.Player)
     player2.setPosition(92, 55)
     // EXTENSION
-    // 
     mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), player2)
     // EXTENSION
-    // 
     mp.moveWithButtons(mp.playerSelector(mp.PlayerNumber.Two))
 }
 function array__defense_to_make_it_harder () {
@@ -131,8 +126,8 @@ function array__defense_to_make_it_harder () {
         `, SpriteKind.Defense)
     defense2.setPosition(120, 79)
     defenses.push(defense2)
-    defense1.vy = 20
-    defense2.vy = -20
+    defense1.vy = 10
+    defense2.vy = -10
     defense1.setFlag(SpriteFlag.BounceOnWall, true)
     defense2.setFlag(SpriteFlag.BounceOnWall, true)
     for (let defense of defenses) {
@@ -279,10 +274,9 @@ let goal1: Sprite = null
 let directionY = 0
 let directionX = 0
 let ball: Sprite = null
-let defense3 = null
 // ARRAY
-// 
 let defenses2: number[] = []
+let defense3 = null
 createPlayers()
 createBallAndGoals()
 array__defense_to_make_it_harder()
