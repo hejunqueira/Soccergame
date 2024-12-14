@@ -16,10 +16,12 @@ function kickBall (player2: Sprite) {
 function checkGoal () {
     if (ball.overlapsWith(goal1)) {
         score2 += 1
+        game.splash("GOAL!")
         ball.setPosition(80, 60)
     }
     if (ball.overlapsWith(goal2)) {
         score1 += 1
+        game.splash("GOAL!")
         ball.setPosition(80, 60)
     }
 }
@@ -118,7 +120,7 @@ function createBallAndGoals () {
         ..............................
         ..............................
         `, SpriteKind.Goal)
-    goal1.setPosition(10, 60)
+    goal1.setPosition(18, 67)
     goal2 = sprites.create(img`
         ...........111111111....
         ...........11111111111..
@@ -155,11 +157,11 @@ game.onUpdate(function () {
     kickBall(player1)
     kickBall(player2)
     checkGoal()
-    if (score1 >= 5) {
+    if (score1 >= 2) {
         game.splash("Player 1 Wins!")
         game.reset()
     }
-    if (score2 >= 5) {
+    if (score2 >= 2) {
         game.splash("Player 2 Wins!")
         game.reset()
     }
